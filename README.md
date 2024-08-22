@@ -26,3 +26,5 @@
 ```bash
     python bot.py
 ```
+
+Ссылка на бот: t.me/mlvn_price_bot
