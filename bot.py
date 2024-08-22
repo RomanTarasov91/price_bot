@@ -1,7 +1,12 @@
 import os
 from dotenv import load_dotenv
 from telegram import Update
-from telegram.ext import ApplicationBuilder, CommandHandler, MessageHandler, ContextTypes, filters
+from telegram.ext import (ApplicationBuilder,
+                          CommandHandler,
+                          MessageHandler,
+                          ContextTypes,
+                          filters
+                          )
 
 from parse_admarginem import parse_price_admarginem
 from parser import parse_prices
@@ -45,8 +50,13 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE) -> 
     """Обработчик ссылок с admarginem"""
     global user_message
     user_message = update.message.text
-    price = parse_price_admarginem(user_message)
-    await update.message.reply_text(f'Цена книги: {price}')
+
+    if "admarginem.ru" not in user_message:
+        await update.message.reply_text(
+            'Пока я принимаю только ссылки с admarginem.ru, и команды: см /start')
+    else:
+        price = parse_price_admarginem(user_message)
+        await update.message.reply_text(f'Цена книги: {price}')
 
 
 def main() -> None:
