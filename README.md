@@ -4,7 +4,7 @@
 
 ```bash
     git clone git@github.com:find-y/price_bot.git
-    cd price_bit
+    cd price_bot
 ```
 
 2.Установите библиотеки в вирутальное окружение:
