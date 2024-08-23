@@ -1,4 +1,4 @@
 
 def parse_prices():
-    return 'Парсер пока не настроен'
-    # бот выведет юзеру то, что вернул пасрер
+    parse_result = 'Парсер пока не настроен'
+    return parse_result
